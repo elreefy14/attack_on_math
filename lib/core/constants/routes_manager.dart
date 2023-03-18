@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppRoutes {
+
+  static const String PaymentScreen = "/paymentScreen";
   static const String mainRoute = "/main";
   static const String login = "/login";
   static const String newPassword = "/newPassword";

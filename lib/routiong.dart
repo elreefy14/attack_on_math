@@ -12,6 +12,7 @@ import 'feautres/home/presenation/home_layout.dart';
 import 'feautres/home/presenation/zoom_drawer.dart';
 import 'feautres/notification/presenation/notification_screen.dart';
 import 'feautres/payment/presenation/payment_screen.dart';
+import 'feautres/payment/presenation/paymob/paymob_payment.dart';
 import 'feautres/registeration/presenation/SignUpScreen.dart';
 import 'feautres/registeration/presenation/reset_code_screen.dart';
 
@@ -69,6 +70,9 @@ class RouteGenerator {
    //courseContent
      case AppRoutes.courseContent:
        return MaterialPageRoute(builder: (_) =>CourseContentScreen());
+      case AppRoutes.PaymentScreen:
+        return MaterialPageRoute(builder: (_) =>PaymentScreen());
+
 
       default:
         return _errorRoute();

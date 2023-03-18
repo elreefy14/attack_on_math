@@ -56,6 +56,87 @@ class HomeCubit extends Cubit<HomeState> {
     print('user is ${user!.toJson()}');
     emit(getCachedUser());
   }
+//Collection: Teachers
+// Document: teacherID
+//
+// - Field: name (string)
+// - Field: email (string)
+// - Field: photoUrl (string)
+// - Field: bio (string)
+// - Field: courses (array)
+//
+// Subcollection: Courses
+// Document: courseID
+//
+// - Field: title (string)
+// - Field: lowercaseTitle (string)
+// - Field: description (string)
+// - Field: price (number)
+// - Field: image (string)
+// - Field: category (string)
+// - Field: duration (number)
+// - Subcollection: Chapters
+// Document: chapterID
+//     - Field: title (string)
+//     - Field: lessons (array)
+//     Subcollection: Lessons
+//     Document: lessonID
+//         - Field: title (string)
+//         - Field: duration (number)
+//         - Field: videoUrl (string)
+//         - Field: quiz (array)
+//
+// Subcollection: LessonTitles
+// Document: lessonTitle
+//
+// - Field: courseID (string)
+// - Field: lessonID (string)
+// - Field: title (string)
+//
+// Collection: Users
+// Document: userID
+//
+// - Field: phone (string)
+// - Field: name (string)
+// - Field: email (string)
+// - Field: token (string)
+// - Field: enrolledCourses (array)
+// - Field: viewedLessons (array)
+// - Field: uId (string)
+// - Field: boughtCourses (array)
+// - Field: deviceToken (array)
+//
+// Subcollection: Notifications
+// Document: notificationID
+//
+// - Field: student_id (string)
+// - Field: course_code (string)
+// - Field: notification (string)
+// - Field: isRead (boolean)
+// - Field: unreadCount (number)
+// - Field: timestamp (timestamp)
+// - Field: dateTime (datetime)
+//
+// Collection: Enrollments
+// Document: enrollmentID
+//
+// - Field: userID (string)
+// - Field: courseID (string)
+// - Field: teacherID (string)
+// - Field: progress (number)
+// - Field: isCompleted (boolean)
+//
+// Collection: Categories
+// Document: categoryID
+//
+// - Field: name (string)
+// - Field: image (string)
+  //get uid of specific course using title of course .use 1 read from firebase
+  //then in collecteion of devide token make doc is uid of specific course
+  //it contain 1 field is array of device token of all users who enroll in this course
+
+
+
 
   void addTeacherAndCourseAndachaptersAndLessons() {
     //Collection: Teachers

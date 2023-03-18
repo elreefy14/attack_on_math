@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:youtube_apis/feautres/notification/business_logic/notification_cubit.dart';
+import 'package:youtube_apis/feautres/payment/business_logic/payment_cubit.dart';
 import 'package:youtube_apis/routiong.dart';
 
 import 'core/bloc_observer.dart';
@@ -19,6 +20,8 @@ import 'feautres/registeration/business_logic/auth_cubit/firebase_auth_cubit.dar
 import 'feautres/registeration/business_logic/auth_cubit/otp_cubit.dart';
 import 'feautres/registeration/business_logic/registeration_cubit/registeration_bloc.dart';
 import 'package:bot_toast/bot_toast.dart';
+
+import 'injection.dart';
 //import notification_screen
 
 Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -85,7 +88,7 @@ Future<void> main() async {
   );
 
 
-  //initGetIt();
+  setupDependencies();
   BlocOverrides.runZoned(() => runApp(const MyApp()),
       blocObserver: MyBlocObserver());
 
@@ -105,12 +108,14 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         // BlocProvider(create: (context) => getIt<AuthCubit>()),
+
+        BlocProvider(create: (context) => getIt<PaymentCubit>()),
         BlocProvider(create: (context) => OtpCubit()),
         BlocProvider(create: (context) => NotificationCubit()),
         BlocProvider(create: (context) => RegisterCubit()),
         BlocProvider(create: (context) => FirebaseAuthCubit()),
         BlocProvider(create: (context) => HomeCubit()
-            ..searchCourse('mat')
+        //    ..searchCourse('mat')
         //    ..addTeacherAndCourseAndachaptersAndLessons()
        //   ..sendNotification(
        //   'integration test yto one', 'math'
@@ -120,9 +125,9 @@ class MyApp extends StatelessWidget {
           //..enrollCourse(
          // ' 7Ww1DVgs0gX6eeLochZfVHgIPKz2','1'
         //),
-          //..firebaseMessagingGetToken()
-       // ..sendFCMNotification(
-        //    token: ' flDGSoGOR1GHNenJDDcdU2:APA91bFf1qqqHrmynn2I1Ql6j8y6_RlERSzbKktZYK4n48WL-JVG3vsfVB8Opr4ZV_M1P3QiYkPvdjcUOOGJWEBvBF-SNfCE41BkDFz7IvnoSPPOpNgcItRvUYj9ZBmaa4vCqq5nm_-L ', senderName: 'ahmed' ,messageImage: 'hiiii')
+            ..firebaseMessagingGetToken()
+        ..sendFCMNotification(
+           token: 'fCM_RJZERkWTJ-gOF3HqLg:APA91bEaT3iRG6kXJfYFCxZYic5ylKTYtRVmf0U7vQCiTj0XLm4z6MQgMQU6SeqVjXcEUt2WrX9v-fFwGzMqs58Gepf9HeFcnu_FxI4wIlUtpX6D2pOhNNeyAM00SUptj6esIpHc08dX', senderName: 'ahmed attack' ,messageImage: 'hiiii')
          // ..sendNotification(
           //  '6EAx9TEpHDc5N0ivwDEaTrufL2X2',
         // 'math', 'en')
@@ -157,7 +162,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          initialRoute: AppRoutes.zoom,
+          initialRoute: AppRoutes.PaymentScreen,
           onGenerateRoute:RouteGenerator.generateRoute,
         ),
       ),
