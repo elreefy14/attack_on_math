@@ -11,7 +11,7 @@ import 'feautres/home/presenation/Menu.dart';
 import 'feautres/home/presenation/home_layout.dart';
 import 'feautres/home/presenation/zoom_drawer.dart';
 import 'feautres/notification/presenation/notification_screen.dart';
-import 'feautres/payment/presenation/payment_screen.dart';
+import 'feautres/payment/presenation/payment_screen_pay_package.dart';
 import 'feautres/payment/presenation/paymob/paymob_payment.dart';
 import 'feautres/registeration/presenation/SignUpScreen.dart';
 import 'feautres/registeration/presenation/reset_code_screen.dart';

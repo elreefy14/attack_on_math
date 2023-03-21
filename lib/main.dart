@@ -109,7 +109,9 @@ class MyApp extends StatelessWidget {
       providers: [
         // BlocProvider(create: (context) => getIt<AuthCubit>()),
 
-        BlocProvider(create: (context) => getIt<PaymentCubit>()),
+        BlocProvider(create: (context) => getIt<PaymentCubit>()..
+        authenticate(
+            apiKey: 'ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmpiR0Z6Y3lJNklrMWxjbU5vWVc1MElpd2libUZ0WlNJNkltbHVhWFJwWVd3aUxDSndjbTltYVd4bFgzQnJJam8yT1RJNE9URjkuajdKSDh3ZnBsUlZhaFpZZDF5anZCVTBIcXcyMDltN0thSThNZEZRTUdFd0xFZm5KR1V6X1NDdEVOSmZKcTR5LXlDRmUwcXMtMzZnbnhrVnI2bXZoN2c=')),
         BlocProvider(create: (context) => OtpCubit()),
         BlocProvider(create: (context) => NotificationCubit()),
         BlocProvider(create: (context) => RegisterCubit()),
